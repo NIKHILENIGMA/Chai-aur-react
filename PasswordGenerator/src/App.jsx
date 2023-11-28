@@ -27,8 +27,7 @@ function App() {
 
   const copyPasswordClipBoard = useCallback(() => {
     passwordRef.current?.select();
-    passwordRef.current?.setSelection(0, 50);
-
+    passwordRef.current?.setSelectionRange(0, 50);
     window.navigator.clipboard.writeText(password);
   }, [password]);
 
@@ -38,11 +37,11 @@ function App() {
 
   return (
     //First interface which have title and copy button
-    <div className="w-full max-w-md m-auto shadow-md rounded-lg px-5 py-4 my-7 text-orange-800 bg-green-700">
-      <h1 className="text-4xl text-center text-yellow-400 my-4 ">
+    <div className="w-full max-w-md m-auto shadow-md rounded-lg px-5 py-4 my-7 text-black bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500">
+      <h1 className="text-4xl text-center text-yellow-300 my-4 ">
         Password Generator
       </h1>
-      <div className=" flex shadow rounded-lg overflow-hidden mb-4 bg-red-700">
+      <div className=" flex shadow rounded-lg overflow-hidden mb-4">
         <input
           type="text"
           name=""
@@ -54,7 +53,7 @@ function App() {
         />
         {/* Copy Button */}
         <button
-          className=" outline-none bg-violet-800 text-white hover:text-white hover:bg-orange-500 hover:shadow-2xl px-3 py-3 shrink-0.5 "
+          className=" outline-none bg-violet-800 text-white hover:text-white hover:bg-pink-800 shadow-inherit px-3 py-3 shrink-0.5 "
           onClick={copyPasswordClipBoard}
         >
           Copy
@@ -62,20 +61,19 @@ function App() {
       </div>
 
       {/* Slider  */}
-      <div className="flex text-sm gap-x-2">
+      <div className="flex text-sm gap-x-2 ">
         <div className="flex items-center gap-x-4">
           <input
             type="range"
             min={5}
             max={50}
             value={length}
-            className=" cursor-grabbing pr-2 bg-red-500 "
-            onmousemove="rangeSlide(this.value)"
+            className=" cursor-grabbing pr-2"
             onChange={(e) => {
               setLength(e.target.value);
             }}
           />
-          <label className=" text-orange-400">Length: {length}</label>
+          <label className=" text-white">Length: {length}</label>
         </div>
 
         {/* Number Checkbox */}
@@ -84,12 +82,12 @@ function App() {
             type="checkbox"
             defaultChecked={number}
             id="numberInput"
-            className=" cursor-pointer"
+            className=" cursor-pointer "
             onChange={() => {
               setNumber((prev) => !prev);
             }}
           />
-          <label htmlFor="numberInput" className=" text-orange-400">
+          <label htmlFor="numberInput" className=" text-white">
             Numbers
           </label>
         </div>
@@ -104,7 +102,7 @@ function App() {
               setCharacter((prev) => !prev);
             }}
           />
-          <label htmlFor="characterInput" className=" text-orange-400">
+          <label htmlFor="characterInput" className=" text-white">
             Character
           </label>
         </div>
