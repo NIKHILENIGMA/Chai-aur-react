@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 # 🔰 ReactJS Projects
 Welcome to React-learning, your go-to repository for a collection of mini React projects! 🚀
@@ -36,6 +36,6 @@ Here are some Additional Resources
 [React Router Documentation](https://reactrouter.com/en/main)
 
 [Vite-react](https://vitejs.dev/guide/)
-=======
+
 
 
