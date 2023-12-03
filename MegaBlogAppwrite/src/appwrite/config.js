@@ -129,9 +129,9 @@ export class Service {
     }
   }
 
-  async previewFile(fileId) {
+  previewFile(fileId) {
     try {
-      return await this.bucket.previewFile(conf.appwriteBucketId, fileId);
+      return this.bucket.getFilePreview(conf.appwriteBucketId, fileId);
     } catch (error) {
       console.log(
         `Error occur at App-write service :: deleteFile method:: Error:${error}`
