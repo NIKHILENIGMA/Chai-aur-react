@@ -1,4 +1,4 @@
-import conf from "../conf";
+import conf from "../conf/conf";
 import { Client, Account, ID } from "appwrite";
 
 export class AuthService {
@@ -56,7 +56,8 @@ export class AuthService {
     } catch (error) {
       console.log(
         `Error occur at App-write service :: getCurrentUser method:: Error:${error}`
-      );
+        );
+        
     }
     return null; //If there is no account exist
   }
