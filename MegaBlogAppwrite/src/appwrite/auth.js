@@ -32,7 +32,9 @@ export class AuthService {
         return userAccount;
       }
     } catch (error) {
-      throw error;
+      console.log(
+        `Error occur at App-write service :: createAccount method:: Error:${error}`
+      );
     }
   }
 
@@ -41,7 +43,9 @@ export class AuthService {
     try {
       return await this.account.createEmailSession(email, password);
     } catch (error) {
-      throw error;
+      console.log(
+        `Error occur at App-write service :: logIn method:: Error:${error}`
+      );
     }
   }
 
@@ -51,7 +55,7 @@ export class AuthService {
       return await this.account.get();
     } catch (error) {
       console.log(
-        `There is an error, please resolve this first and then procide futher: ${error}`
+        `Error occur at App-write service :: getCurrentUser method:: Error:${error}`
       );
     }
     return null; //If there is no account exist
@@ -60,10 +64,10 @@ export class AuthService {
   //Create a async function for logOut user
   async logOut() {
     try {
-      await this.account.deleteSessions(); // This delete all the session of the user from multiple brower  
+      await this.account.deleteSessions(); // This delete all the session of the user from multiple brower
     } catch (error) {
       console.log(
-        `Please resolve this error in logOut method :: Error: ${error} `
+        `Error occur at App-write service :: logOut method:: Error:${error}`
       );
     }
   }
