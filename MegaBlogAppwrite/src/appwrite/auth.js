@@ -9,6 +9,7 @@ export class AuthService {
     this.client
       .setEndpoint(conf.appwriteUrl) //API Endpoint
       .setProject(conf.appwriteProjectId); //Project ID
+    this.account = new Account(this.client);
   }
 
   //? We need to create a wraper so that in future if we change our backend service so we should not need to change our frontend
@@ -39,7 +40,7 @@ export class AuthService {
   }
 
   //Create a async function for Login
-  async logIn({ email, password }) {
+  async login({ email, password }) {
     try {
       return await this.account.createEmailSession(email, password);
     } catch (error) {
@@ -56,8 +57,7 @@ export class AuthService {
     } catch (error) {
       console.log(
         `Error occur at App-write service :: getCurrentUser method:: Error:${error}`
-        );
-        
+      );
     }
     return null; //If there is no account exist
   }

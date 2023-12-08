@@ -1,13 +1,13 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import authService from "../../appwrite/auth";
-import { logOut } from "../../store/authSlice";
+import { logout } from "../../store/authSlice";
 
 export default function LogoutBtn() {
   const disPatch = useDispatch();
   const logoutHandler = () => {
-    authService.logOut.then(() => {
-      disPatch(logOut()).catch((err) => {
+    authService.logout.then(() => {
+      disPatch(logout()).catch((err) => {
         console.log(`Error for dispatch :: LogoutBtn :: Error : ${err}`);
       });
     });
