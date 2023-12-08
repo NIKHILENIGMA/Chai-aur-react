@@ -1,12 +1,7 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = {
-  todos: [
-    {
-      id: 1,
-      text: "Hello world",
-    },
-  ],
+  todos: [],
 };
 
 export const todoSlice = createSlice({
@@ -16,10 +11,11 @@ export const todoSlice = createSlice({
     addTodo: (state, action) => {
       const todo = {
         id: nanoid(),
-        text: action.payload.text,
+        text: action.payload,
       };
       state.todos.push(todo);
     },
+
     removeTodo: (state, action) => {
       state.todos = state.todos.filter((todo) => todo.id !== action.payload);
     },
@@ -28,4 +24,5 @@ export const todoSlice = createSlice({
 
 export const { addTodo, removeTodo } = todoSlice.actions;
 
-export default todoSlice.reducer
+export default todoSlice.reducer;
+//note we are importing individual method as well as whole reducers
